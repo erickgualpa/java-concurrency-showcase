@@ -1,5 +1,8 @@
 # Executor Framework
 
-```shell
-java ExecutorFramework.java
+🧪 Run tests
+<br>
+
+```shell script
+mvn clean verify
 ```

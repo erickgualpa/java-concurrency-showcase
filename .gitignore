@@ -1,5 +1,4 @@
-# Compiled class files
-*.class
+*/target/**
 
 # Package Files
 *.jar

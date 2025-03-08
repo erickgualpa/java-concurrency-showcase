@@ -8,17 +8,22 @@ import java.util.concurrent.Executors;
 class ExecutorServiceWrapper {
   void runNonBlocking() {
     try (ExecutorService executorService = Executors.newFixedThreadPool(10)) {
-      range(0, 10).forEach(i -> executorService.submit(() -> printThreadName(i)));
+      range(0, 10).forEach(i -> executorService.submit(() -> expensiveTask(i)));
     } catch (Exception e) {
       System.out.println("Exception occurred: " + e.getMessage());
     }
   }
 
   void runBlocking() {
-    range(0, 10).forEach(ExecutorServiceWrapper::printThreadName);
+    range(0, 10).forEach(ExecutorServiceWrapper::expensiveTask);
   }
 
-  private static void printThreadName(int i) {
+  private static void expensiveTask(int i) {
+    try {
+      Thread.sleep(100);
+    } catch (InterruptedException e) {
+      throw new RuntimeException(e);
+    }
     System.out.println("Thread: " + i + " " + Thread.currentThread().getName());
   }
 }

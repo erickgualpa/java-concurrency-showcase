@@ -2,10 +2,10 @@ package org.egualpam.executorframework;
 
 import org.junit.jupiter.api.Test;
 
-public class ExecutorFrameworkTest {
+class ExecutorFrameworkTest {
 
   @Test
-  public void mainRuns() {
+  void mainRuns() {
     ExecutorFramework.main(new String[] {});
   }
 }

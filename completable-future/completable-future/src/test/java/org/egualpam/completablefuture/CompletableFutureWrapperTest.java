@@ -1,4 +1,4 @@
-package org.egualpam.executorframework;
+package org.egualpam.completablefuture;
 
 import static java.time.Instant.now;
 import static org.junit.jupiter.api.Assertions.assertEquals;

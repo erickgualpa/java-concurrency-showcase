@@ -1,4 +1,4 @@
-package org.egualpam.executorframework;
+package org.egualpam.completablefuture;
 
 import static java.util.stream.IntStream.range;
 

@@ -5,7 +5,7 @@ import static java.util.stream.IntStream.range;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-class ExecutorFrameworkService {
+class ExecutorServiceWrapper {
   void runNonBlocking() {
     try (ExecutorService executorService = Executors.newFixedThreadPool(10)) {
       range(0, 10).forEach(i -> executorService.submit(() -> printThreadName(i)));
@@ -15,7 +15,7 @@ class ExecutorFrameworkService {
   }
 
   void runBlocking() {
-    range(0, 10).forEach(ExecutorFrameworkService::printThreadName);
+    range(0, 10).forEach(ExecutorServiceWrapper::printThreadName);
   }
 
   private static void printThreadName(int i) {

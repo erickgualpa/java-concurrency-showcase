@@ -3,13 +3,13 @@ package org.egualpam.executorframework;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class ExecutorFrameworkServiceTest {
+class ExecutorServiceWrapperTest {
 
-  private ExecutorFrameworkService testSubject;
+  private ExecutorServiceWrapper testSubject;
 
   @BeforeEach
   void setUp() {
-    testSubject = new ExecutorFrameworkService();
+    testSubject = new ExecutorServiceWrapper();
   }
 
   @Test

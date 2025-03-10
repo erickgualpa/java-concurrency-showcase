@@ -2,14 +2,23 @@ package org.egualpam;
 
 import static java.util.stream.IntStream.range;
 
+import java.util.HashSet;
+import java.util.Set;
+
 class BasicThreadingWrapper {
 
-  public void runBlocking() {
-    range(0, 10).forEach(this::expensiveTask);
+  private final Set<Integer> values = new HashSet<>();
+
+  Set<Integer> getTasks() {
+    return values;
   }
 
-  public void runNonBlocking() {
-    range(0, 10)
+  void runBlocking(int tasksAmount) {
+    range(0, tasksAmount).forEach(this::expensiveTask);
+  }
+
+  void runNonBlocking(int tasksAmount) {
+    range(0, tasksAmount)
         .forEach(
             i -> {
               Runnable runnable = () -> expensiveTask(i);
@@ -20,10 +29,12 @@ class BasicThreadingWrapper {
 
   private void expensiveTask(int i) {
     try {
-      Thread.sleep(200);
+      Thread.sleep(1000);
     } catch (InterruptedException e) {
       throw new RuntimeException(e);
     }
+
+    values.add(i);
 
     System.out.println("Thread: " + i + " " + Thread.currentThread().getName());
   }

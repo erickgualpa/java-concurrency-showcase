@@ -19,13 +19,16 @@ class CompletableFutureWrapperTest {
 
   @Test
   void runAsync() {
+    final int tasksAmount = 10;
     final Instant timeout = now().plusMillis(5000);
 
     testSubject.runAsync();
 
-    while (testSubject.getTasks().size() < 10 && now().isBefore(timeout)) {
+    while (testSubject.getTasks().size() < tasksAmount && now().isBefore(timeout)) {
       System.out.println("Waiting for tasks to complete");
     }
+
+    assertEquals(tasksAmount, testSubject.getTasks().size());
   }
 
   @Test

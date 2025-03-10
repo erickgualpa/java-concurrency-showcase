@@ -1,7 +1,5 @@
 package org.egualpam;
 
-import static org.junit.jupiter.api.AssertionsKt.assertNotNull;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +13,12 @@ class BasicThreadingWrapperTest {
   }
 
   @Test
-  void nonNull() {
-    assertNotNull(testSubject);
+  void runBlocking() {
+    testSubject.runBlocking();
+  }
+
+  @Test
+  void runNonBlocking() {
+    testSubject.runNonBlocking();
   }
 }

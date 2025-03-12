@@ -5,7 +5,7 @@ import static java.util.stream.IntStream.range;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-class ExecutorServiceWrapper {
+class ExecutorServiceSimpleExample {
   void runNonBlocking() {
     try (ExecutorService executorService = Executors.newFixedThreadPool(10)) {
       range(0, 10).forEach(i -> executorService.submit(() -> expensiveTask(i)));
@@ -15,7 +15,7 @@ class ExecutorServiceWrapper {
   }
 
   void runBlocking() {
-    range(0, 10).forEach(ExecutorServiceWrapper::expensiveTask);
+    range(0, 10).forEach(ExecutorServiceSimpleExample::expensiveTask);
   }
 
   private static void expensiveTask(int i) {

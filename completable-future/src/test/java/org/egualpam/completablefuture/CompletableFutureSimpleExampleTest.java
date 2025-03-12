@@ -8,13 +8,13 @@ import java.util.Set;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class CompletableFutureWrapperTest {
+class CompletableFutureSimpleExampleTest {
 
-  private CompletableFutureWrapper testSubject;
+  private CompletableFutureSimpleExample testSubject;
 
   @BeforeEach
   void setUp() {
-    testSubject = new CompletableFutureWrapper();
+    testSubject = new CompletableFutureSimpleExample();
   }
 
   @Test

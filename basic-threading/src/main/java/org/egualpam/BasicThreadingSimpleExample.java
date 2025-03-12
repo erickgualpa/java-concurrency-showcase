@@ -5,7 +5,7 @@ import static java.util.stream.IntStream.range;
 import java.util.HashSet;
 import java.util.Set;
 
-class BasicThreadingWrapper {
+class BasicThreadingSimpleExample {
 
   private final Set<Integer> values = new HashSet<>();
 

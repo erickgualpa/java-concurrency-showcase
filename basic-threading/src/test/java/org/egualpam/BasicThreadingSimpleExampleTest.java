@@ -7,13 +7,13 @@ import java.time.Instant;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class BasicThreadingWrapperTest {
+class BasicThreadingSimpleExampleTest {
 
-  private BasicThreadingWrapper testSubject;
+  private BasicThreadingSimpleExample testSubject;
 
   @BeforeEach
   void setUp() {
-    testSubject = new BasicThreadingWrapper();
+    testSubject = new BasicThreadingSimpleExample();
   }
 
   @Test

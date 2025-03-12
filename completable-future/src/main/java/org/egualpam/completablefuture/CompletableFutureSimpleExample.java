@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
-class CompletableFutureWrapper {
+class CompletableFutureSimpleExample {
 
   private final Set<Integer> tasks = new HashSet<>();
 

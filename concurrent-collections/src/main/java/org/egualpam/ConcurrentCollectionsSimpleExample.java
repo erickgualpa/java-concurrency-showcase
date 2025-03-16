@@ -28,6 +28,25 @@ class ConcurrentCollectionsSimpleExample {
     return updated;
   }
 
+  List<Integer> processUsingSynchronizedRegularCollection(int iterations) {
+    Runnable task =
+        () -> {
+          delay();
+          int size = updated.size();
+          synchronized (updated) {
+            updated.add(size);
+          }
+        };
+
+    try (ExecutorService executorService = Executors.newFixedThreadPool(10)) {
+      range(0, iterations).forEach(i -> executorService.submit(task));
+    } catch (Exception e) {
+      System.out.println("Exception occurred: " + e.getMessage());
+    }
+
+    return updated;
+  }
+
   private static void delay() {
     try {
       Thread.sleep(1000);

@@ -16,10 +16,21 @@ class ConcurrentCollectionsSimpleExampleTest {
     testSubject = new ConcurrentCollectionsSimpleExample();
   }
 
-  @RepeatedTest(50)
+  @RepeatedTest(25)
   void processUsingRegularCollection() {
     Instant start = Instant.now();
     List<Integer> result = testSubject.processUsingRegularCollection(10);
+    Instant end = Instant.now();
+    printTimeElapsed(end, start);
+
+    assertEquals(10, result.size());
+    System.out.println("Result: " + result);
+  }
+
+  @RepeatedTest(25)
+  void processUsingSynchronizedRegularCollection() {
+    Instant start = Instant.now();
+    List<Integer> result = testSubject.processUsingSynchronizedRegularCollection(10);
     Instant end = Instant.now();
     printTimeElapsed(end, start);
 

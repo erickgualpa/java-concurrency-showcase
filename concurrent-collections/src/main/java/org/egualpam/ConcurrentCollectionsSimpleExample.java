@@ -3,15 +3,16 @@ package org.egualpam;
 import static java.util.stream.IntStream.range;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 class ConcurrentCollectionsSimpleExample {
 
-  private final List<Integer> updated = new ArrayList<>();
-
   List<Integer> processUsingRegularCollection(int iterations) {
+    final List<Integer> updated = new ArrayList<>();
+
     Runnable task =
         () -> {
           delay();
@@ -28,7 +29,9 @@ class ConcurrentCollectionsSimpleExample {
     return updated;
   }
 
-  List<Integer> processUsingSynchronizedRegularCollection(int iterations) {
+  List<Integer> processUsingSynchronizedList(int iterations) {
+    final List<Integer> updated = Collections.synchronizedList(new ArrayList<>());
+
     Runnable task =
         () -> {
           delay();

@@ -28,9 +28,9 @@ class ConcurrentCollectionsSimpleExampleTest {
   }
 
   @RepeatedTest(25)
-  void processUsingSynchronizedRegularCollection() {
+  void processUsingSynchronizedList() {
     Instant start = Instant.now();
-    List<Integer> result = testSubject.processUsingSynchronizedRegularCollection(10);
+    List<Integer> result = testSubject.processUsingSynchronizedList(10);
     Instant end = Instant.now();
     printTimeElapsed(end, start);
 
